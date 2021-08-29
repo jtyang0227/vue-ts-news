@@ -1,32 +1,67 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <spinner :loading="loading"></spinner>
+    <tool-bar></tool-bar>
+    <transition name="routing-fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script lang="ts">
+import ToolBar from './components/ToolBar.vue';
+import Spinner from './components/Spinner.vue';
+import bus from './utils/bus';
+import Vue from 'vue';
+
+export default Vue.extend({
+  components: {
+    ToolBar,
+    Spinner,
+  },
+  data() {
+    return {
+      loading: false,
+    }
+  },
+  methods: {
+    onProgress() {
+      this.loading = true;
+    },
+    offProgress() {
+      this.loading = false;
+    }
+  },
+  created() {
+    bus.$on('on:progress', this.onProgress);
+    bus.$on('off:progress', this.offProgress);
+  }
+})
+</script>
+
+<style>
+body {
+  margin: 0;
 }
 
-#nav {
-  padding: 30px;
+a {
+  color: #34495e;
+  text-decoration: none;
+}
+a:hover {
+  color: #42b883;
+  text-decoration: underline;
+}
+a.router-link-active {
+  text-decoration: underline;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+/* Router Transition */
+.routing-fade-enter-active, .routing-fade-leave-active {
+  transition: opacity .3s ease;
+}
+.routing-fade-enter, .routing-fade-leave-to
+/* .routing-fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
