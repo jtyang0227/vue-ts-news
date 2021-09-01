@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import VueRouter, { NavigationGuardNext } from "vue-router";
-import { ItemView, UserView } from '../views';
+import { ItemView, UserView } from '../views/index';
 import createListView from '../views/CreateListView';
 import bus from '../utils/bus';
-import store from '../store/index.js';
+import store from '../store/index';
 
 Vue.use(VueRouter);
 
@@ -33,6 +33,7 @@ export default new VueRouter({
         //   new Error('fail to fetch news items');
         //   // next('./error'); // fail page
         // }
+
         next();
 
         // store.dispatch('FETCH_LIST', routeTo.name);

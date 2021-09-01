@@ -13,6 +13,8 @@ import ToolBar from './components/ToolBar.vue';
 import Spinner from './components/Spinner.vue';
 import bus from './utils/bus';
 import Vue from 'vue';
+import { MutationsTypes } from "@/store/mutations";
+import { ActionsTypes } from "@/store/actions";
 
 export default Vue.extend({
   components: {
@@ -32,7 +34,15 @@ export default Vue.extend({
       this.loading = false;
     }
   },
-  created() {
+  async created() {
+    /**
+     * store type 정의
+     * vue.d.ts 소스에서 $store: Store<any>; -> $store: Store<RootState>;
+     */
+    this.$store.state.news;
+    // this.$store.commit(MutationsTypes.SET_NEWS, 1);
+    // const response = await this.$store.dispatch(ActionsTypes.FETCH_NEWS);
+
     bus.$on('on:progress', this.onProgress);
     bus.$on('off:progress', this.offProgress);
   }

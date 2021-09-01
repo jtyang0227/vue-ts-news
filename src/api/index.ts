@@ -21,7 +21,7 @@ export interface NewsItem {
   url: string;
 }
 
-function fetchNews(): AxiosPromise<NewsItem> {
+function fetchNews(): AxiosPromise<NewsItem[]> {
   return axios.get(api.news);
 }
 

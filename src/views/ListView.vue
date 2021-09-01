@@ -4,20 +4,20 @@
   </div>
 </template>
 
-<script>
-import { fetchNews } from "@/api";
+<script lang="ts">
+import Vue from "vue";
+import { fetchNews, NewsItem } from "@/api";
 import ListItem from "../components/ListItem.vue";
-import bus from "../utils/bus";
 
-export default {
+export default Vue.extend({
   components: {
-    ListItem
+    ListItem,
   },
 
   // vdata
   data() {
     return {
-      newsItems: []
+      newsItems: [] as NewsItem[],
     };
   },
 
@@ -27,16 +27,12 @@ export default {
       const response = await fetchNews();
       // console.log(response.data);
       this.newsItems = response.data; // Data Injection
-    }
+    },
   },
 
   // api call
   created() {
     this.fetchNewsItems();
-  }
-};
+  },
+});
 </script>
-
-<style>
-
-</style>

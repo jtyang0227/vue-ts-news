@@ -8,6 +8,7 @@ export default {
   fetchedList(state) {
     return state.list;
   },
+
   // ItemView
   userName(state) {
     return state.item.user;
