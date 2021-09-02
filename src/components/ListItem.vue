@@ -54,9 +54,9 @@ export default Vue.extend({
     //   return this.items[0].time_ago.concat();
     // },
 
-    listItems(): any {
-      return this.$store.getters.fetchedList;
-    }
+    // listItems(): any {
+    //   return this.$store.getters.fetchedList;
+    // }
   }
 })
 </script>

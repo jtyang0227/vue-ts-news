@@ -39,7 +39,11 @@ export default Vue.extend({
      * store type 정의
      * vue.d.ts 소스에서 $store: Store<any>; -> $store: Store<RootState>;
      */
-    this.$store.state.news;
+
+    // getters 보다는 this 접근하는것을 권장합니다.
+    // this.$store.state.news;
+    this.$store.getters.fetchedNews;
+
     // this.$store.commit(MutationsTypes.SET_NEWS, 1);
     // const response = await this.$store.dispatch(ActionsTypes.FETCH_NEWS);
 

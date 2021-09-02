@@ -4,7 +4,12 @@ import { RootState } from "@/store/state";
 import { fetchNews } from "@/api";
 
 export enum ActionsTypes {
-  FETCH_NEWS ="FETCH_NEWS"
+  FETCH_NEWS ="FETCH_NEWS",
+  FETCH_ASK = "FETCH_ASK",
+  FETCH_JOBS = "FETCH_JOBS",
+  FETCH_USER = "FETCH_USER",
+  FETCH_ITEM = "FETCH_ITEM",
+  FETCH_LIST = "FETCH_LIST",
 }
 
 type MyActionContext = {

@@ -15,7 +15,7 @@ const mutations = {
   // [MutationsTypes.SET_ASK](state: RootState, ask: NewsItem[]) {
   //   state.ask = ask;
   // },
-  // [MutationsTypes.SET_JOBS](state: RootState, news: NewsItem[]) {
+  // [MutationsTypes.SET_JOBS](state: RootState, jobs: NewsItem[]) {
   //   state.jobs = jobs;
   // },
 };

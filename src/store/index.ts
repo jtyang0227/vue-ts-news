@@ -4,7 +4,7 @@ import { RootState, state } from "@/store/state";
 import { mutations } from "@/store/mutations";
 import { actions } from "@/store/actions";
 
-// import getters from './getters.js';
+// import getters from './getters.ts';
 // import mutations from './mutations.js';
 // import actions from './actions.ts';
 

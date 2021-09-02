@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
 .container {
   padding: 0 0.5rem;
 }
